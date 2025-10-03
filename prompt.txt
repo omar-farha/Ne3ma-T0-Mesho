@@ -1,0 +1,31 @@
+You are a senior full-stack developer. I have a Next.js 14 (App Router) + TypeScript + TailwindCSS project that currently uses Clerk for authentication. I want to replace Clerk with Supabase Auth and implement a new user system. Please implement the following requirements step by step, writing all code, SQL, and policies needed:
+
+## Goal (Summary)
+1. Replace Clerk with Supabase Auth (email + password).
+2. Add 4 user account types:
+   - "individual" (normal user)
+   - "restaurant"
+   - "factory"
+   - "pharmacy"
+3. Sign-up flow:
+   - Step A: Select account type.
+   - Step B: Show appropriate form:
+     - **individual** → name, email, password, phone, address, avatar (optional file upload)
+     - **restaurant/factory/pharmacy** → business_name, email, password, address, business_image (file upload)
+4. Create a new `users` table in Supabase (Postgres) with all user info.  
+   Store image paths in DB (not just external URLs). Upload files to Supabase Storage.
+5. Create:
+   - **Private profile** (editable by the user only).  
+   - **Public profile** (accessible to anyone for viewing/ordering/contacting).  
+6. Add product/listings system:
+   - Users can create, edit, delete listings.
+   - Listings can have images stored in Supabase Storage.
+   - Public visitors can view listings.
+7. Apply Row-Level Security (RLS) policies:
+   - Users can only update their own data.
+   - Listings: only owner can modify, but everyone can read active ones.
+8. Remove all Clerk code and env variables.
+
+---
+
+
